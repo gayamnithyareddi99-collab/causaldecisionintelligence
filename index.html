@@ -615,26 +615,33 @@ footer{background:rgba(25, 201, 89, 0.274);border-top:1px solid rgba(22,163,74,0
 @media(min-width:1400px){:root{--max-w:1300px;}.hero h1{font-size:72px;}.section-h2{font-size:54px;}}
 @media(max-width:1100px){.footer-top-band{grid-template-columns:1fr 1fr;}.footer-stats-strip{grid-template-columns:repeat(2,1fr);}.footer-stats-strip .footer-stat:nth-child(2){border-right:none;}}
 @media(max-width:900px){
-  .platform-grid{grid-template-columns:repeat(2,1fr);}
-  .pricing-grid{grid-template-columns:1fr 1fr;}
+  /* ── General ── */
   .kpi-row{grid-template-columns:repeat(2,1fr);}
   .market-kpi{grid-template-columns:1fr 1fr;}
   .hero-mini-card{flex:1 1 calc(50% - 12px);min-width:unset;}
   .professional-services-grid{grid-template-columns:1fr!important;gap:18px!important;}
   .pricing-grid{grid-template-columns:1fr;gap:22px;}
 
-  /* ── Platform: single column at 900px ── */
-  .platform-grid{grid-template-columns:1fr;}
-  .platform-card{width:100%;}
+  /* ── THE PLATFORM: collapse 3-col to 1-col ── */
+  .platform-grid{grid-template-columns:1fr!important;}
 
-  /* ── FAQ: full-width, better tap targets ── */
-  .faq-wrap{margin-bottom:32px;}
-  .faq-q h4{font-size:15px;}
-  .faq-body{font-size:14px;}
+  /* ── CONTACT: stack left panel + form vertically ── */
+  .contact-grid{grid-template-columns:1fr!important;gap:32px;}
+  .contact-form-card{padding:24px 18px;}
 
-  /* ── Contact: stack columns vertically ── */
-  .contact-grid{grid-template-columns:1fr;gap:28px;}
-  .contact-form-card{padding:24px 20px;}
+  /* ── FAQ page: collapse 2-col question grid to 1-col ── */
+  #page-faq .container>div:first-child{grid-template-columns:1fr!important;}
+
+  /* ── FAQ "Still Have Questions?" CTA band: stack vertically ── */
+  #page-faq [style*="grid-template-columns:1fr auto"]{
+    grid-template-columns:1fr!important;
+  }
+  #page-faq [style*="grid-template-columns:1fr auto"]>div:last-child{
+    flex-direction:row!important;
+    flex-wrap:wrap;
+    min-width:unset!important;
+    gap:10px;
+  }
 }
 @media(max-width:768px){
   .nav-links,.nav-right .btn-demo-nav{display:none;}
